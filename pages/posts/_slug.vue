@@ -11,8 +11,6 @@ import createClient from '~/plugins/contentful'
 export default Vue.extend({
   async asyncData({ params }) {
     const contentful = createClient()
-    let content: any = null
-
     const entries = await contentful
       .getEntries({
         content_type: 'test',

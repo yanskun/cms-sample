@@ -1,6 +1,5 @@
 <template>
   <div class="root">
-    <button @click="handleClick">click here</button>
     <div v-for="(post, index) in posts" :key="index">
       <!-- <nuxt-link :to="{name: 'sample', params: {slug: item.slug}}"> -->
       <nuxt-link :to="`/posts/${post.fields.slug}`">
@@ -25,12 +24,6 @@ export default Vue.extend({
 
     return {
       posts: entries.items
-    }
-  },
-
-  methods: {
-    handleClick() {
-      console.log(this.posts)
     }
   }
 })

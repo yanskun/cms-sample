@@ -28,6 +28,9 @@ jobs:
           node-version: 12.x
 
       - name: npm install and generate
+        env:
+            CTF_SPACE_ID: secrets.CTF_SPACE_ID
+            CTF_CDA_ACCESS_TOKEN: secrets.CTF_CDA_ACCESS_TOKEN
         run: |
           npm install
           npm run generate

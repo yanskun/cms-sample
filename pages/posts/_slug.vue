@@ -4,11 +4,29 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 import createClient from '~/plugins/contentful'
 
 export default Vue.extend({
+  head() {
+    console.log(this.post.fields.thumbnail.fields.file.url)
+    return {
+      title: this.post.fields.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.post.fields.description
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: this.post.fields.thumbnail.fields.file.url
+        }
+      ]
+    }
+  },
   async asyncData({ params }) {
     const contentful = createClient()
     const entries = await contentful
